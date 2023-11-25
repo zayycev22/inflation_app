@@ -1,44 +1,33 @@
-# Разработка графического интерфейса для кейса "Оценка эффективности вложений в содержание недвижимости"
-> Ссылка на интерфейс: ...
+# Пограммная реализация решения кейса "Оценка эффективности вложений в содержание недвижимости" 
 ### :hammer_and_wrench: Languages and Tools :
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/python/python-original.svg" height="75" width="75">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/javascript/javascript-original.svg" height="75" width="75">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/fastapi/fastapi-original.svg" height="75" width="75">
-  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/react/react-original.svg" height="75" width="75">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/python/python-original.svg" height="40" width="40">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/fastapi/fastapi-original.svg" height="40" width="40">
+  <img src="https://raw.githubusercontent.com/devicons/devicon/55609aa5bd817ff167afce0d965585c92040787a/icons/docker/docker-plain.svg" height="40" width="40">
 </div>
 
-## :crystal_ball: Front-End
-Загрузка зависимостей
+## :japanese_goblin: Запуск приложения
+### Данное приложение можно запустить в любой среде, где запускается Docker
+Склонируйте проект
 ```
-cd frontend
-npm install
+git clone https://github.com/zayycev22/train_api.git
 ```
-Запуск frontend приложения
-```
-npm start
-```
-Сервер будет работать по ссылке 127.0.0.1:3000
-## :hammer: Back-End
-Создание виртуального окружения:
-```
-pythom -m venv backend/venv
-backend\venv\Scripts\Activate.ps1
-```
-Установка необходимых пакетов:
-```
-pip install -r ./backend/requirements.txt
-```
-Запуск backend приложения
-```
-python ./backend/main.py
-```
-Сервер будет работать по ссылке 127.0.0.1:3000
-## :moyai: Описание приложения
 
-В данном веб приложении используется предобученная модель для предсказания затрат на коммунальные платежи.
+Запустите контейнер
+```
+docker-compose up
+```
 
-Данное решение предпологает то, что на внешних сервисах происходит сбор данных, после чего, оператор/администратор может загрузить данные, и получить результат. Результат можно посмотреть как на сайте в таблице, так и скачать файл в формате .csv .
+После того как контейнер запустится, вам будет доступен сайт по ссылке
+```
+http://127.0.0.1:8000/docs
+```
+На этой странице указана документация к api и возможность интерактивного взаимодействия с ней
+
+
+## :octocat: Описание приложения
+
+Веб-приложение, основанное на модели предсказания затрат на коммунальные платежи и выгодности инвестиций в объект, предоставляет возможность загрузить исходный файл с требуемыми объектами, а на выходе получить предположительные затраты.
 
 Видео с демонстрацией решения можете посмотреть [ВСТАВИТЬ ССЫЛКУ](https://disk.yandex.ru/d/ibS70vjAJ01B5g).
