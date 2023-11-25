@@ -6,6 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 from starlette.status import HTTP_400_BAD_REQUEST
 import tensorflow as tf
+import uvicorn
 
 app = FastAPI()
 
@@ -48,3 +49,7 @@ async def upload_file(file: UploadFile = File(...)):
             return ans1
     else:
         return JSONResponse({'status': 'bad_file'}, status_code=HTTP_400_BAD_REQUEST)
+
+
+if __name__ == '__main__':
+    uvicorn.run(app)
