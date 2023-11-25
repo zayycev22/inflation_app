@@ -1,10 +1,11 @@
 import shutil
-
+import numpy as np
 import pandas as pd
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 from starlette.status import HTTP_400_BAD_REQUEST
+import tensorflow as tf
 
 app = FastAPI()
 
@@ -33,12 +34,17 @@ async def upload_file(file: UploadFile = File(...)):
             shutil.copyfileobj(file.file, f)
         try:
             frame = pd.read_csv(f"files/{file.filename}")
-            # loaded_model = tf.keras.models.load_model("model")
+            x = np.array(frame)
+            loaded_model = tf.keras.models.load_model("Model")
+            ans = loaded_model.predict(x)
+            ans1 = []
+            for i in ans:
+                ans1.append(str(i[0]))
             del frame
         except Exception as e:
             print(e)
             return JSONResponse({'status': 'something went wrong'}, status_code=HTTP_400_BAD_REQUEST)
         else:
-            return {"ans": [0, 1, 2, 3, 4, 5]}
+            return ans1
     else:
         return JSONResponse({'status': 'bad_file'}, status_code=HTTP_400_BAD_REQUEST)
