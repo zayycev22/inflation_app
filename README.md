@@ -11,7 +11,7 @@
 ### Данное приложение можно запустить в любой среде, где запускается Docker
 Склонируйте проект
 ```
-git clone [https://github.com/zayycev22/train_api.git](https://github.com/zayycev22/inflation_app.git)
+git clone https://github.com/zayycev22/train_api.git
 ```
 
 Запустите контейнер
